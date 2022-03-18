@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="acc">
+            <p class="instruction">
+                Hello There. Welcome on the bord. this is an tool for find the BMI index. created using vanila javaScript. there are four input feild below. please foloow the instruction to submit all the correctly.
+            </p>
+
+            <div class="parent">
+                <div class="question">
+                    <span class="infoHead">Feild No:1&2</span>
+                </div>
+                <div class="answer">
+                    <p>
+                        Enter your Weaight in this feild. please make sure your given is in kelogram format. Now Suppose your weaight is 55KG,450grams. in this case please use the second input feild.insert 55 in the first feild and 450 in to second one. if you don't give any
+                        valu to the second feild, the application will set a defualt value of Zero on it. this is as simple as that.
+                    </p>
+                </div>
+            </div>
+            <!-- 2 -->
+            <div class="parent">
+                <div class="question">
+                    <span class="infoHead">Feild No:3&4</span>
+                </div>
+                <div class="answer">
+                    <p>
+                        now you have to insert your height (in feet) to the feild number three. make sure you have insert a non decimal and lerger than one(1) value. it's very rare that someone's height is (x)feet (0) inchi. suppose your height is 5 feet and 7 inchi. in that
+                        case please use the fourth feid to insert the value of inchi. please make sure you have insert a value that leargr than 0 and sorter than 11.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="title">
+                    <h3>Calculate BMI (Body Mass Index)</h3>
+                    <div class="formContainer">
+                        <form action="#" id="bmiForm">
+                            <!-- weaight -->
+                            <input id="weaight" type="number" placeholder="Enter weaight in KG" step="01" />
+                            <!-- gram -->
+
+                            <input id="weaightGram" type="number" placeholder="Enter weaight in gram" step="0.01" value="0" max="1000" min="0" />
+                            <!-- height (feet) -->
+                            <input id="height" type="number" placeholder="Enter Height in Feet" step="1" min="0" />
+
+                            <!-- inchi -->
+                            <input id="inchi" type="number" placeholder="Enter Height in Feet" step="01" min="0" max="11" value="0" />
+
+                            <button class="btn" id="calculate" type="submit">
+                  Calcuate
+                </button>
+                        </form>
+
+                        <h4 id="result"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="qut">
+            <h2>Random Quates About Helth with Author Name:</h2>
+            <h2 id="QuteContent"></h2>
+            <a href="" id="authorElement"></a>
+        </div>
+    </div>
+    <script src="./JS/BMI.js "></script>
+</body>
+
+</html>
