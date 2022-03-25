@@ -4,14 +4,27 @@ function getID(elemenmt) {
 const weaight = getID(`weaight`);
 const weaightGram = getID(`weaightGram`);
 const height = getID(`height`);
+const inchi = getID(`inchi`);
 const calculate = getID(`calculate`);
 const bmiForm = getID(`bmiForm`);
 const result = getID(`result`);
 const quotesPlacement = getID(`QuteContent`);
 const authorPLacement = getID(`authorElement`);
 
-function convertFeetToMetter(feetValue) {
-    return feetValue / 3.28;
+function convertFeetToSquareMetter(foot, inch) {
+    // convert foot to inch
+    let footToInchi = Number(foot) * 12;
+    let totallInchi = footToInchi + Number(inch);
+    console.log(inch);
+
+    console.log(`total inchi ${totallInchi}`);
+    let inchToMeter = totallInchi * 0.0254;
+    console.log(`total meter ${inchToMeter}`);
+
+    let sqaure = inchToMeter * inchToMeter;
+    console.log(`total sqare meter ${sqaure}`);
+
+    return Number(sqaure);
 }
 
 function createValidWeaight(Kg, Gram) {
@@ -28,8 +41,8 @@ function createValidWeaight(Kg, Gram) {
 bmiForm.addEventListener(`submit`, (e) => {
     e.preventDefault();
 
-    const heightInMetter = convertFeetToMetter(height.value);
-    const squareMeter = heightInMetter * 2;
+    const squareMeter = convertFeetToSquareMetter(height.value, inchi.value);
+    console.log(squareMeter);
     const wv = weaight.value;
     const wvg = weaightGram.value;
     const getWeaight = createValidWeaight(wv, wvg);
@@ -41,8 +54,8 @@ bmiForm.addEventListener(`submit`, (e) => {
     if (squareMeter == "" || getWeaight == "") {
         {
             alert("Oops! Validation failed!");
-            returnToPreviousPage();
-            return false;
+            // returnToPreviousPage();
+            // return false;
         }
     }
     if (getWeaight < squareMeter) {
@@ -50,7 +63,7 @@ bmiForm.addEventListener(`submit`, (e) => {
             `Are you kidding Me? your weaight is ${getWeaight} and your height is ${height.value}. witch is learger than your weaight. But Ok I will allow it`
         );
     }
-    if (heightInMetter > 2.438) {
+    if (squareMeter > 2.438) {
         alert(
             `usally a common person height is around 4.5 to 6.5 but insert a height that over 8 feet. are you sure?`
         );
@@ -77,6 +90,7 @@ bmiForm.addEventListener(`submit`, (e) => {
     if (findBmi >= 30) {
         result.classList.add(`bmiDanger`);
     }
+    console.log(` total bmi is ${findBmi}`);
 
     // If your BMI is less than 18.5, it falls within the underweight range.
     // If your BMI is 18.5 to 24.9, it falls within the normal or Healthy Weight range.
@@ -85,8 +99,6 @@ bmiForm.addEventListener(`submit`, (e) => {
 
     // result.innerText = `your body mass index is ${findBmi.toFixed(2)}`;
 });
-
-console.log(`Hello World`);
 
 // accordion
 
@@ -145,9 +157,7 @@ const personalApi = [{
 
 // display rendom quatos
 let qts = personalApi[Math.floor(Math.random() * personalApi.length)];
-console.log(qts);
 
 authorPLacement.innerText = qts.author;
 
 quotesPlacement.innerText = qts.content;
-console.dir(authorPLacement);
