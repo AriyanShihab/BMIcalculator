@@ -62,11 +62,13 @@ bmiForm.addEventListener(`submit`, (e) => {
         alert(
             `Are you kidding Me? your weaight is ${getWeaight} and your height is ${height.value}. witch is learger than your weaight. But Ok I will allow it`
         );
+        result.innerText = findBmi.toFixed(2);
     }
     if (squareMeter > 2.438) {
         alert(
             `usally a common person height is around 4.5 to 6.5 but insert a height that over 8 feet. are you sure?`
         );
+        result.innerText = findBmi.toFixed(2);
     }
     if (findBmi < 18.5) {
         result.classList.add(`bmiDanger`);
